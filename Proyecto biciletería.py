@@ -24,3 +24,44 @@ class Bicicleteria:
         self.cantidad_de_ventas = 0  # Agregar el atributo cantidad_de_ventas
         print("Bicicleteria creada")
 
+
+    
+
+    
+#########################################################################################
+# 3 - Vender bicicleta - Eliminar bicicletas
+    def vender_bici(self):
+        print("\n---------------------------")
+        print("Vender bicicleta")
+        print("---------------------------\n")
+        bicicletas = list(self.collection.find())
+        if len(bicicletas) == 0:
+            print("No hay bicicletas")
+            return self.menu()
+
+        self.listar_bicis(bicicletas)
+        nro_de_serie = input("\nIngrese el nro de serie: ")
+        bici = self.collection.find_one({"nro_de_serie": nro_de_serie})
+        if bici: # Si la bicicleta existe
+            self.ganancias += bici["precio"]
+            self.cantidad_de_ventas += 1
+            self.collection.delete_one({"nro_de_serie": nro_de_serie})
+            print("\nBicicleta vendida")
+        else: # Si la bicicleta no existe
+            print("Bicicleta no encontrada")
+        return self.menu()
+
+
+    def listar_bicis(self, bicicletas):
+        print("\n---------------------------")
+        for bici in bicicletas:
+            print(bici)
+
+    # Ganancias y ventas - Mostrar ganancias y ventas
+    def ganancias_y_ventas(self):
+        print("\n---------------------------")
+        print("Ganancias y ventas")
+        print("---------------------------")
+        print(f"Ganancias: ${self.ganancias}")
+        print(f"Ventas: {self.cantidad_de_ventas}")
+        return self.menu()
