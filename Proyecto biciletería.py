@@ -111,6 +111,25 @@ class Bicicleteria:
             print("Bicicleta no encontrada")
         return self.menu()
 ################################################# TORRES MIRIAM #################################################
+# 6 - Modificar precio - Modificar precio de una bicicleta
+    def modificar_precio(self):
+        print("\n---------------------------")
+        print("Modificar precio")
+        print("---------------------------\n")
+        bicicletas = list(self.collection.find())
+        if len(bicicletas) == 0:
+            print("No hay bicicletas")
+            return self.menu()
 
+        self.listar_bicis(bicicletas)
+        nro_de_serie = input("Ingrese el nro de serie: ")
+        bici = self.collection.find_one({"nro_de_serie": nro_de_serie})
+        if bici:
+            precio = float(input("Ingrese el nuevo precio: "))
+            self.collection.update_one({"nro_de_serie": nro_de_serie}, {"$set": {"precio": precio}})
+            print("Precio modificado")
+        else:
+            print("Bicicleta no encontrada")
+        return self.menu()
 ################################################# GIANGRAVE FACUNDO #################################################
 
