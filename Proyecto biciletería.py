@@ -1,3 +1,4 @@
+################################################# DELGADO CAROLINA #################################################
 from pymongo import MongoClient
 
 class Bicicleta:
@@ -15,7 +16,7 @@ class Bicicleteria:
     def _init_(self):
         self.client = MongoClient('mongodb://localhost:27017/')
         self.db = self.client['bicicleteria']
-  # Eliminar la colección 'bicicletas' si existe
+# Eliminar la colección 'bicicletas' si existe
         if 'bicicletas' in self.db.list_collection_names():
             self.db.drop_collection('bicicletas')
 
@@ -24,11 +25,33 @@ class Bicicleteria:
         self.cantidad_de_ventas = 0  # Agregar el atributo cantidad_de_ventas
         print("Bicicleteria creada")
 
+################################################# SABA JUAN AGUSTÍN #################################################
+# 1 - Añadir bicicleta - Creacion de bicicletas
+    def crear_bici(self):
+        print("\n---------------------------")
+        print("Añadir bicicleta")
+        print("---------------------------")
+        nro_de_serie = input("Ingrese el nro de serie: ")
+        modelo = input("Ingrese el modelo: ")
+        anio = int(input("Ingrese el año: "))
+        precio = float(input("Ingrese el precio: "))
+        bici = Bicicleta(nro_de_serie, modelo, anio, precio)
+        self.guardar_bici(bici)
+        print("\nBicicleta creada con exito\n")
+        return self.menu()
 
-    
+# Insertamos la bicicleta en la colección
+    def guardar_bici(self, bicicleta):
+        self.collection.insert_one({
+            "nro_de_serie": bicicleta.nro_de_serie,
+            "modelo": bicicleta.modelo,
+            "anio": bicicleta.anio,
+            "precio": bicicleta.precio
+        })
+################################################# COSTILLA CELINA #################################################
 
-    
-#########################################################################################
+
+################################################# PUTRINO AGUSTIN #################################################
 # 3 - Vender bicicleta - Eliminar bicicletas
     def vender_bici(self):
         print("\n---------------------------")
@@ -65,3 +88,9 @@ class Bicicleteria:
         print(f"Ganancias: ${self.ganancias}")
         print(f"Ventas: {self.cantidad_de_ventas}")
         return self.menu()
+################################################# TORRES DAVID #################################################
+
+################################################# TORRES MIRIAM #################################################
+
+################################################# GIANGRAVE FACUNDO #################################################
+
