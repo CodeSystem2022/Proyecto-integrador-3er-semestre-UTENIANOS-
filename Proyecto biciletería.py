@@ -94,7 +94,22 @@ class Bicicleteria:
         print(f"Ventas: {self.cantidad_de_ventas}")
         return self.menu()
 ################################################# TORRES DAVID #################################################
+# 5- Revisar precio - Mostrar precio de una bicicleta
+    def revisar_precio(self):
+        bicicletas = list(self.collection.find())
+        if len(bicicletas) == 0:
+            print("No hay bicicletas")
+            return self.menu()
+        # Mostramos las bicicletas
 
+        self.listar_bicis(bicicletas)
+        nro_de_serie = input("Ingrese el nro de serie: ")
+        bici = self.collection.find_one({"nro_de_serie": nro_de_serie})
+        if bici:
+            print(f"\nPrecio: ${bici['precio']}")
+        else:
+            print("Bicicleta no encontrada")
+        return self.menu()
 ################################################# TORRES MIRIAM #################################################
 
 ################################################# GIANGRAVE FACUNDO #################################################
