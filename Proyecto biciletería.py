@@ -111,6 +111,7 @@ class Bicicleteria:
             print("Bicicleta no encontrada")
         return self.menu()
 ################################################# TORRES MIRIAM #################################################
+    
 # 6 - Modificar precio - Modificar precio de una bicicleta
     def modificar_precio(self):
         print("\n---------------------------")
@@ -133,3 +134,59 @@ class Bicicleteria:
         return self.menu()
 ################################################# GIANGRAVE FACUNDO #################################################
 
+# 7 Precargar bicicletas - Cargo bicicletas ya creadas
+    def precargar_bicis(self):
+        bicicletas = [
+            Bicicleta("123", "BMX", 2019, 100),
+            Bicicleta("456", "Trek", 2020, 200),
+            Bicicleta("789", "Scott", 2021, 300),
+            Bicicleta("321", "Specialized", 2022, 400)
+        ]
+        for bici in bicicletas:
+            self.guardar_bici(bici)
+        print("\nBicicletas precargadas con exito")
+        return self.menu()
+
+    # Interfaz de usuario
+    def menu(self):
+        print("\n---------------------------")
+        print("             MENU             ")
+        print("==============================")
+        print("1. Añadir bicicleta")
+        print("2. Mostrar bicicletas")
+        print("3. Vender bicicleta")
+        print("4. Mostrar ganancias y ventas")
+        print("5. Revisar precio")
+        print("6. Modificar precio")
+        print("7. Precargar bicicletas")
+        print("8. Salir")
+        print("---------------------------")
+        opcion = input("Ingrese una opcion: ")
+        
+        # Disparamos la opción y devolvemos si queremos seguir en el menú
+        if opcion == "1":
+            return self.crear_bici()
+        elif opcion == "2":
+            return self.mostrar_bicis()
+        elif opcion == "3":
+            return self.vender_bici()
+        elif opcion == "4":
+            return self.ganancias_y_ventas()
+        elif opcion == "5":
+            return self.revisar_precio()
+        elif opcion == "6":
+            return self.modificar_precio()
+        elif opcion == "7":
+            return self.precargar_bicis()
+        elif opcion == "8":
+            print("Gracias por usar nuestra bicicleteria!")
+            return False
+        else:
+            print("Opcion invalida")
+            return self.menu()
+
+def main():
+    bicicleteria = Bicicleteria()
+    bicicleteria.menu()
+
+main()
