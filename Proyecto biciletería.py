@@ -49,7 +49,12 @@ class Bicicleteria:
             "precio": bicicleta.precio
         })
 ################################################# COSTILLA CELINA #################################################
-
+# 2 - Mostrar bicicletas - Mostrar todas las bicicletas
+    def mostrar_bicis(self):
+        print("\n---------------------------")
+        for bici in self.collection.find():
+            print(bici)
+        return self.menu()
 
 ################################################# PUTRINO AGUSTIN #################################################
 # 3 - Vender bicicleta - Eliminar bicicletas
