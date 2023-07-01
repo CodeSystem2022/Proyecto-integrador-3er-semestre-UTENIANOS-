@@ -2,7 +2,9 @@
 
 # VIDEO DEL PROYECTO:
 
-https://youtu.be/1Cu_5snmQfg
+
+https://github.com/CodeSystem2022/Proyecto-integrador-3er-semestre-UTENIANOS-/assets/85753366/8cb5ff6e-a3c4-4bc9-a0cc-d5cc76c3f0aa
+
 
 <a href='https://postimg.cc/F7cBcgQc' target='_blank'><img src='https://i.postimg.cc/F7cBcgQc/Proyecto-Utenianos-trimestre.gif' border='0' alt='Proyecto-Utenianos-trimestre'/></a>
 ## El proyecto trabajado en nuestro equipo tiene como objetivo mostrar el código en lenguaje  python bajo el marco Scrum Master.
